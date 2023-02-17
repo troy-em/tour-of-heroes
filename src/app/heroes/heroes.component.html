@@ -1,4 +1,11 @@
-<h1>{{value | currency}}</h1>
-<h1>{{hero.name | uppercase}} Details</h1>
-<div><span>ID:</span>{{hero.id}}</div>
-<div><span>Name:</span>{{hero.name}}</div>
+<h2>My Heroes</h2>
+<ul class="heroes">
+  <li *ngFor="let hero of heroes" >
+    <button type="button" [class.selected]="hero === selectedHero" (click)="onSelected(hero)">
+      <span class="badge">{{hero.id}}</span>
+      <span class="name">{{hero.name}}</span>
+    </button>
+  </li>
+</ul>
+
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
